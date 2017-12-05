@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8" />
+  <title>Интернет-магазин</title>
+</head> 
+<body> 
+  <div id="container"></div> 
+      
+  <script src="https://unpkg.com/react@15/dist/react.js"></script> 
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> 
+      
+  <script src="ishop.js"></script>
+  <link rel="stylesheet" type="text/css" href="ishop.css" />
+
+  <script>
+
+    var titleText='Список товаров';
+    var listProducts=[ 
+      {product:'Телевизор',code:1, price: 540, url: "", count:22}, 
+      {product:'Холодильник',code:2, price: 830, url: "", count:12}, 
+      {product:'Духовой шкаф',code:3, price: 510, url: "", count:4} 
+    ];
+
+    ReactDOM.render(
+      React.createElement(ProductsBlock,{title:titleText,products:listProducts}), 
+      document.getElementById('container') 
+    );
+
+  </script>
+
+</body> 
+</html>
