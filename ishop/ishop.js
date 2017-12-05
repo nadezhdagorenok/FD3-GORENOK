@@ -20,7 +20,7 @@ var ProductsBlock = React.createClass({
         React.DOM.div({key:v.code,className:'Products'},
           React.DOM.span({className:'Product'},v.product),
           React.DOM.span({className:'Price'},v.price),
-          React.DOM.span({className:'Photo'},v.href),
+          React.DOM.span({className:'Url'},v.url),
           React.DOM.span({className:'Count'},v.count),
           
         )
