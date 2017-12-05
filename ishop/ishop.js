@@ -9,7 +9,7 @@ var ProductsBlock = React.createClass({
         code: React.PropTypes.string.isRequired,
         count: React.PropTypes.number.isRequired,
         product: React.PropTypes.string.isRequired,
-        href: React.PropTypes.string.isRequired
+        //href: React.PropTypes.string.isRequired
       })
     )
   },
@@ -20,7 +20,7 @@ var ProductsBlock = React.createClass({
         React.DOM.div({key:v.code,className:'Products'},
           React.DOM.span({className:'Product'},v.product),
           React.DOM.span({className:'Price'},v.price),
-          React.DOM.img({className:'Photo'},v.href),
+          React.DOM.span({className:'Photo'},v.href),
           React.DOM.span({className:'Count'},v.count),
           
         )
