@@ -20,6 +20,7 @@ var ProductsBlock = React.createClass({
   render: function() {
     var headerTable = this.props.header.map(v => 
         React.DOM.div({key:v.code,className:'Header'},
+          React.DOM.span({className:'ProductNumber'},v.productNumber),
           React.DOM.span({className:'ProductName'},v.productName),
           React.DOM.span({className:'ProductModel'},v.productModel),
           React.DOM.span({className:'PriceProduct'},v.priceProduct),
@@ -30,6 +31,7 @@ var ProductsBlock = React.createClass({
 
     var productsCode=this.props.products.map( v =>
         React.DOM.div({key:v.code,className:'Products'},
+          React.DOM.span({className:'Number'},v.number),
           React.DOM.span({className:'Product'},v.product),
           React.DOM.span({className:'Model'},v.model),
           React.DOM.span({className:'Price'},v.price),

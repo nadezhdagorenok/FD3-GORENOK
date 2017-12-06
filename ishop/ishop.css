@@ -18,12 +18,15 @@
     position: relative;
     top: 30px;
 }
-.ProductName, .PriceProduct, .Url, .Balance, .ProductModel{
+.ProductName, .PriceProduct, .Url, .Balance, .ProductModel, .ProductNumber{
     position : absolute;
     font-size: 20px;
 } 
+.ProductNumber{
+    left:0;
+}
 .ProductName{
-    left: 0;
+    left: 7vw;
 }
 .ProductModel{
     left: 21vw;
@@ -43,14 +46,19 @@
     top: 50px; 
     font-size: 16px;   
 }
-.Product, .Price, .Count, .Href, .Model{
+.Product, .Price, .Count, .Href, .Model, .Number{
     position: absolute;    
 }
+.Number{
+    left:0;
+    width: 2vw;
+    font-size: 20px;
+}
 .Product{
-    left: 0;
+    left: 2vw;
     color: blue;
     font-size: 20px;
-    width: 15vw;
+    width: 17vw;
 }
 .Model{
     left: 20vw;    
