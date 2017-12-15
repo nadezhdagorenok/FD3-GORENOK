@@ -4,10 +4,10 @@ var SortNotes = React.createClass({
     
       propTypes: {
         
-        freetext: React.PropTypes.string.isRequired,
+        freetext: React.PropTypes.string,
         checked: React.PropTypes.bool,  
-        cbFreeTextChanged: React.PropTypes.func.isRequired,     
-        cbSelected: React.PropTypes.func.isRequired, 
+        cbFreeTextChanged: React.PropTypes.func,     
+        cbSelected: React.PropTypes.func, 
       },
       freeTextChanged: function(EO) { 
           console.log('InputText: текст свободного ввода изменён - '+ EO.target.value); 

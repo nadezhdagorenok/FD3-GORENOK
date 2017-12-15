@@ -14,7 +14,7 @@ var SelectProduct = React.createClass({
     
       render: function() {    
           return     
-                     React.DOM.div({className: "SelectProduct"},                         
+                     React.DOM.div(null,                         
                      React.DOM.select({multiple: true}, 
                      React.DOM.option({value:this.props.text}, this.props.text)
                     ),
