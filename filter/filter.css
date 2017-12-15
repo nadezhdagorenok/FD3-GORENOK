@@ -1,6 +1,6 @@
 .SelectBlock{
-    width: 90vw;
-    height: 500px;
+    width: 25vw;
+    height: 20vw;
     background-color: beige;
     border: 5px solid blue;
     padding: 15px;    
@@ -9,12 +9,12 @@
     top: 50px; 
 }
 .SelectProduct{
-    padding: 30px 20px;    
+    padding: 5px;    
     position:absolute;
     left:5vw;
     top: 150px;
-    width: 25vw;
-    height: 20vw;
+    width: 10vw;
+    
     font-size: 16px;
 
 }

@@ -1,7 +1,4 @@
-.TextBlock{
-    position:absolute;
-    left:0;
-    top: 150px;
-    width: 15vw;
+.TextBlock{    
     font-size: 16px;
+    padding:0;
 } 
