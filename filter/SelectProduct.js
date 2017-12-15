@@ -14,12 +14,16 @@ var SelectProduct = React.createClass({
     
       render: function() {    
           return     
-                     React.DOM.div({className:'TextBlock'},                         
+                    ( React.DOM.div({className:'TextBlock'},                         
                      React.DOM.select({multiple: true}, 
                      React.DOM.option({value:this.props.text}, this.props.text, this.props.code)
                     ),
+                  )
                   );      
     
       },
     
     });
+
+
+         

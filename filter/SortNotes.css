@@ -1,13 +1,15 @@
 .FormBlock{
-    position: relative;
+   
+        position:absolute;
+        left:0;
+        top: 100px;
+    
 
 }
 .CheckBox{
-    position: absolute;
-    left:0;
+    float:left;
 
 }
 .FreeText{
-    position: absolute;
-    right:0;
+    
 }
