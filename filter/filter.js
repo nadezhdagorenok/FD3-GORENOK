@@ -15,7 +15,7 @@ var SelectBlock = React.createClass({
         return {freetext:null,
                 checked : false,
                 search : false,
-                data: this.props.products
+                data: this.props.products,
               };
       },
       freeTextChanged: function(fat) {                                  
