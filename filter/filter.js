@@ -2,8 +2,7 @@ var SelectBlock = React.createClass({
     
       displayName: 'SelectBlock',
     
-      propTypes: {
-        //workMode: React.PropTypes.number.isRequired,        
+      propTypes: {           
         products:React.PropTypes.arrayOf(
             React.PropTypes.shape({
             code: React.PropTypes.string.isRequired,            
@@ -19,7 +18,7 @@ var SelectBlock = React.createClass({
                 data: this.props.products
               };
       },
-      freeTextChanged: function(fat) {                                  //cbFreeTextChanged(EO.target.value)
+      freeTextChanged: function(fat) {                                  
           console.log('ChangeText: текст свободного ввода изменён - '+fat); 
           this.setState( {freetext:fat} );
           this.setState({search : true});
