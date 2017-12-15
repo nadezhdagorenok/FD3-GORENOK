@@ -53,7 +53,7 @@ var SelectBlock = React.createClass({
         );
     
         return React.DOM.div( {className:'SelectBlock'},   
-               React.createElement(SortNotes),        
+               React.createElement(SortNotes, {cbSelected:this.props.cbSelected, cbFreeTextChanged: this.props.cbFreeTextChanged}),        
                React.DOM.select( {className:'SelectProduct', multiple: true}, productsCode ),          
         );
     
