@@ -2,10 +2,9 @@ var SortNotes = React.createClass({
     
       displayName: 'SortNotes',
     
-      propTypes: {
-        
+      propTypes: {        
         freetext: React.PropTypes.string,
-        checked: React.PropTypes.bool,  
+        checked: React.PropTypes.bool.isRequired,  
         cbFreeTextChanged: React.PropTypes.func.isRequired,     
         cbSelected: React.PropTypes.func.isRequired, 
       },
@@ -15,9 +14,8 @@ var SortNotes = React.createClass({
                    
       },
       checkboxClicked: function(EO){
-        console.log('Checkbox чекнут - '); 
-        
-        this.props.cbSelected();
+        console.log('Checkbox чекнут - ');         
+        this.props.cbSelected(true);
 
       },
 
