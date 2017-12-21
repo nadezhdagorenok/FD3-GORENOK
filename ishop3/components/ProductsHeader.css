@@ -1,0 +1,29 @@
+.ProductsHeader{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 30px;
+    position: relative;
+    top: 30px;
+}
+.ProductName, .PriceProduct, .Url, .Balance, .ProductModel, .ProductNumber{
+    position : absolute;
+    font-size: 20px;
+} 
+.ProductNumber{
+    left:0;
+}
+.ProductName{
+    left: 7vw;
+}
+.ProductModel{
+    left: 21vw;
+}
+.PriceProduct{
+    left: 30vw;
+}
+.Url{
+    left: 52vw;
+}
+.Balance{
+    right: 0;
+}
