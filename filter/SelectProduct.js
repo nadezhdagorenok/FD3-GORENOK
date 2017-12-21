@@ -4,21 +4,12 @@ var SelectProduct = React.createClass({
     
       propTypes: {
         code: React.PropTypes.string.isRequired,        
-        text: React.PropTypes.string.isRequired,
-        // workMode: React.PropTypes.number.isRequired,
-        
-        //cbFreeAnswerTextChanged: React.PropTypes.func.isRequired,
-        //cbSelected: React.PropTypes.func.isRequired,
-        // isSelected: React.PropTypes.bool.isRequired,
+        text: React.PropTypes.string.isRequired,        
       },    
     
       render: function() {    
-          return  (
-                     //React.DOM.div({className:'TextBlock'},                         
-                     //React.DOM.select({multiple: true}, 
-                     React.DOM.option({className:'TextBlock', value:this.props.text}, this.props.text)
-                    //),
-                 // )
+          return  (                     
+                     React.DOM.option({className:'TextBlock', value:this.props.code}, this.props.text)                   
                   );      
     
       },

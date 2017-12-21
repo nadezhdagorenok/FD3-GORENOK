@@ -15,7 +15,7 @@ var SortNotes = React.createClass({
       },
       checkboxClicked: function(EO){
         console.log('Checkbox чекнут - ');         
-        this.props.cbSelected(true);
+        this.props.cbSelected(!this.props.checked);
 
       },
 

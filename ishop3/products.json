@@ -1,0 +1,7 @@
+[ 
+    {"number": 1, "product":"Телевизор SAMSUNG", "code":"tv1", "model":"ue40ku6000u", "price": 1540, "href": "https://ic.tweakimg.net/ext/i/2001049853.jpeg", "count":22}, 
+    {"number": 2, "product":"Холодильник Liebherr", "code":"rvg1", "model": "icuns3324", "price": 1830, "href": "https://i2.rozetka.ua/goods/1845388/liebherr_icuns_3324_images_1845388658.jpg", "count":12}, 
+    {"number": 3, "product":"Духовой шкаф KAISER", "code":"oven1", "model": "eh6321", "price": 510, "href": "http://kuhnya-tehnika.ru/wp-content/uploads/2017/03/Kaiser-EG-6370-1.jpg", "count":4}, 
+    {"number": 4, "product":"Кондиционер Gree Bee", "code":"condition1", "model": "GWH12NB-K3NNA4A", "price": 2010, "href": "http://arktik-service.ru/wp-content/uploads/2016/02/gree-u-cool.jpg", "count":1}, 
+    {"number": 5, "product":"Обогреватель Electrolux", "code":"heater1", "model": "ECH/R-2000 M", "price": 200, "href": "https://uvem.ru/upload/iblock/d37/d3773f18ccdfe689d5899353621cc28b.jpeg", "count":2} 
+  ]
