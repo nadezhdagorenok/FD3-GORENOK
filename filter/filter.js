@@ -18,11 +18,11 @@ var SelectBlock = React.createClass({
               };
       },
       freeTextChanged: function(EO) { 
-        //alert('InputText: текст свободного ввода изменён - '+ EO.target.value); 
+        console.log('InputText: текст свободного ввода изменён - '+ EO.target.value); 
         var value = EO.target.value;
         this.setState( {freetext: value} );
-        //alert(this.state.freetext);
-        this.textChanged('фильтр', value);
+        console.log(this.state.freetext);
+        this.textChanged('фильтр');
                  
       },
       checkboxClicked: function(EO){
@@ -31,11 +31,11 @@ var SelectBlock = React.createClass({
       this.textChanged('сортировка');
 
       },
-      textChanged: function(purpose, val) {                                
+      textChanged: function(purpose) {                                
           var searchdata=[];          
-          //alert(val);
+          console.log(this.state.freetext);
           if(purpose === 'фильтр'){          
-              var needle = val.toLowerCase();     
+              var needle = this.state.freetext.toLowerCase();     
               searchdata = this.state.data.filter(function(item){
               return item.toString().toLowerCase().indexOf(needle) > -1;
           });
@@ -66,7 +66,6 @@ var SelectBlock = React.createClass({
         return React.DOM.div( {className:'SelectBlock'}, 
                  React.DOM.input({type:'checkbox', className:'CheckBox', defaultChecked:this.state.checked, onChange:this.checkboxClicked}),
                  React.DOM.input({type:'text',name:'typeText',className:'FreeText', placeholder: 'Поиск', defaultValue:this.state.freetext,onChange:this.freeTextChanged}),  
-                //  React.createElement(SortNotes, {freetext: this.state.freetext, checked:this.state.checked, cbTextChanged: this.textChanged}),        
                  React.DOM.select( {className:'SelectProduct', multiple: true, defaultValue:this.state.data}, productsCode),              //defaultValue:['стол','стул', 'шкаф', 'полка']},
                );
     

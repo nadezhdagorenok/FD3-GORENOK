@@ -28,3 +28,7 @@ var SortNotes = React.createClass({
       },
     
     });
+
+
+
+    //в block пишим React.createElement(SortNotes, {freetext: this.state.freetext, checked:this.state.checked, cbTextChanged: this.textChanged}),   
