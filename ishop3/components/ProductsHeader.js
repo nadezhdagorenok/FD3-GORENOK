@@ -6,12 +6,12 @@ import './ProductsHeader.css';
 class ProductsHeader extends React.Component {
 
   static propTypes = {    
-          productNumber: React.PropTypes.number.isRequired,
-          productName: React.PropTypes.string.isRequired,
-          productModel: React.PropTypes.string.isRequired,
-          priceProduct: React.PropTypes.string.isRequired,
-          url: React.PropTypes.string.isRequired,
-          balance: React.PropTypes.number.isRequired      
+          productNumber: PropTypes.number.isRequired,
+          productName: PropTypes.string.isRequired,
+          productModel: PropTypes.string.isRequired,
+          priceProduct: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
+          balance: PropTypes.number.isRequired,      
         
   };
   

@@ -1,0 +1,60 @@
+.Products{
+    padding: 30px 20px;    
+    position: relative;
+    top: 50px; 
+    font-size: 16px;   
+}
+.Product, .Price, .Count, .Href, .Model, .Number, .ProductChange, .ProductDelete{
+    position: absolute;    
+}
+.Number{
+    left:0;
+    width: 2vw;
+    font-size: 20px;
+}
+.Product{
+    left: 2vw;
+    color: blue;
+    font-size: 20px;
+    width: 17vw;
+}
+.Model{
+    left: 20vw;    
+    color: blue;
+    font-weight: bold;
+    width: 8vw;
+}
+    
+.Price{
+    left: 32vw;
+    color: red; 
+    width: 5vw;
+    
+}
+.Href{
+    left: 40vw;
+    width: 35vw;
+}
+.Count{
+    right:3vw;
+    color: red; 
+    width: 2vw;
+    
+}
+.ProductChange{
+    right:1vw;    
+    width: 2vw;
+
+}
+.ProductDelete{
+    right:0;
+    width: 2vw;
+    
+
+}
+.ProductCard{
+    padding: 30px 20px;    
+    position: relative;
+    top: 150px; 
+    font-size: 16px;
+}
