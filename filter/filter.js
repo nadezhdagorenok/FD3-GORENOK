@@ -20,37 +20,41 @@ var SelectBlock = React.createClass({
       freeTextChanged: function(EO) { 
         console.log('InputText: текст свободного ввода изменён - '+ EO.target.value); 
         var value = EO.target.value;
-        this.setState( {freetext: value} );
-        console.log(this.state.freetext);
-        this.textChanged('фильтр');
-                 
+        this.setState( {freetext: value}, this.textChanged.bind(this, 'фильтр'));
+        console.log(this.state.freetext);     
       },
       checkboxClicked: function(EO){
       console.log('Checkbox чекнут - ', EO.target.value);  
-      this.setState({checked:true});       
-      this.textChanged('сортировка');
-
+      this.setState({checked:true}, this.textChanged.bind(this, 'сортировка'));       
       },
       textChanged: function(purpose) {                                
           var searchdata=[];          
           console.log(this.state.freetext);
           if(purpose === 'фильтр'){          
-              var needle = this.state.freetext.toLowerCase();     
+              var needle = this.state.freetext.toLowerCase();  
+              if(!needle){
+                this.setState({data:this.props.products});
+                return;
+              }
+              console.log('needle=  ', needle);
+              console.log('this.state.data перед фильтром =  ', this.state.data);              
               searchdata = this.state.data.filter(function(item){
-              return item.toString().toLowerCase().indexOf(needle) > -1;
+              return item['text'].toString().toLowerCase().indexOf(needle) > -1;
+              
           });
-        }
-        else {
-            searchdata = this.props.products;
-        }
-        if(purpose === 'сортировка'){
+       }
+        
+        else if(purpose === 'сортировка' && this.state.checked){
             searchdata = this.state.data.slice();
+            var predata = this.state.data.slice();
+            var check = this.state.checked;
             console.log(searchdata);
             searchdata.sort(function(a, b){
-            return a > b ? 1 : -1;
-          });
-        }              
-        this.setState({data:searchdata});     
+            return a.text > b.text ? 1 : -1;
+          });          
+        }        
+       this.setState({data:searchdata});   
+       console.log('state.data=  ',this.state.data);  
         },        
     
     
@@ -58,8 +62,7 @@ var SelectBlock = React.createClass({
     
         var productsCode = this.state.data.map( v =>
             React.createElement(SelectProduct, {key:v.code,
-            text:v.text, code:v.code     
-                  
+            text:v.text, code:v.code                
           })
         );
     
