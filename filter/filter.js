@@ -29,7 +29,8 @@ var SelectBlock = React.createClass({
       this.setState({checked:checked}, this.textChanged.bind(this, 'сортировка'));       
       },
       textChanged: function(purpose) {                                
-          var searchdata=[];          
+          var searchdata=[];      
+              
           console.log(this.state.freetext);
           if(purpose === 'фильтр'){          
               var needle = this.state.freetext.toLowerCase();  
