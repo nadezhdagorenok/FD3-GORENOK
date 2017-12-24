@@ -42,22 +42,23 @@ var SelectBlock = React.createClass({
               searchdata = this.state.data.filter(function(item){
               return item['text'].toString().toLowerCase().indexOf(needle) > -1;
               
-          });
-          this.setState({data:searchdata});
+          });         
        }
         
-        else if(purpose === 'сортировка' && this.state.checked){            
+        else if(purpose === 'сортировка'){            
             searchdata = this.state.data.slice();
-            
+            if(!this.state.checked){
+              this.setState({data:this.props.products});
+              return;
+            }
             console.log(searchdata);
             searchdata.sort(function(a, b){
             return a.text > b.text ? 1 : -1;
-          });       
-          this.setState({data:searchdata});    
+          });     
+              
         }  
-        else   {
-          this.setState({data:this.props.products});
-        }             
+          
+       this.setState({data:searchdata});         
        console.log('state.data=  ',this.state.data);  
         },
 
