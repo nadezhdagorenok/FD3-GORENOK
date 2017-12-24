@@ -24,8 +24,9 @@ var SelectBlock = React.createClass({
         console.log(this.state.freetext);     
       },
       checkboxClicked: function(EO){
-      console.log('Checkbox чекнут - ', EO.target.value);  
-      this.setState({checked:true}, this.textChanged.bind(this, 'сортировка'));       
+      console.log('Checkbox чекнут - ', EO.target.checked);  
+      var checked = EO.target.checked;
+      this.setState({checked:checked}, this.textChanged.bind(this, 'сортировка'));       
       },
       textChanged: function(purpose) {                                
           var searchdata=[];          
@@ -42,20 +43,24 @@ var SelectBlock = React.createClass({
               return item['text'].toString().toLowerCase().indexOf(needle) > -1;
               
           });
+          this.setState({data:searchdata});
        }
         
-        else if(purpose === 'сортировка' && this.state.checked){
+        else if(purpose === 'сортировка' && this.state.checked){            
             searchdata = this.state.data.slice();
-            var predata = this.state.data.slice();
-            var check = this.state.checked;
+            
             console.log(searchdata);
             searchdata.sort(function(a, b){
             return a.text > b.text ? 1 : -1;
-          });          
-        }        
-       this.setState({data:searchdata});   
+          });       
+          this.setState({data:searchdata});    
+        }  
+        else   {
+          this.setState({data:this.props.products});
+        }             
        console.log('state.data=  ',this.state.data);  
-        },        
+        },
+
     
     
       render: function() {
@@ -69,7 +74,7 @@ var SelectBlock = React.createClass({
         return React.DOM.div( {className:'SelectBlock'}, 
                  React.DOM.input({type:'checkbox', className:'CheckBox', defaultChecked:this.state.checked, onChange:this.checkboxClicked}),
                  React.DOM.input({type:'text',name:'typeText',className:'FreeText', placeholder: 'Поиск', defaultValue:this.state.freetext,onChange:this.freeTextChanged}),  
-                 React.DOM.select( {className:'SelectProduct', multiple: true, defaultValue:this.state.data}, productsCode),              //defaultValue:['стол','стул', 'шкаф', 'полка']},
+                 React.DOM.select( {className:'SelectProduct', multiple: true, defaultValue:['стол','стул', 'шкаф', 'полка']}, productsCode),              //defaultValue:['стол','стул', 'шкаф', 'полка']},
                );
     
       },
