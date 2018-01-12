@@ -87,7 +87,7 @@ class Scale {
     scale1.add(tomato4);
     scale1.getSumScale();    
     scale1.getNameList();
-
+//
 
 
 
