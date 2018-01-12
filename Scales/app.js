@@ -17,13 +17,13 @@ var Scale = /** @class */ (function () {
     }
     Scale.prototype.add = function (product) {
         this.listProducts.push(product);
-        console.log(this.listProducts);
+        console.log('Добавлен на весы продукт ' + product.name);
     };
     Scale.prototype.getSumScale = function () {
         for (var i = 0; i < this.listProducts.length; i++) {
             this.amountScale += this.listProducts[i]['scale'];
         }
-        console.log('Общий вес добавленных продуктов:  ' + this.amountScale + ', использовались весы ' + this.type);
+        console.log('Общий вес добавленных продуктов в граммах:  ' + this.amountScale + ', использовались весы типа ' + this.type);
     };
     Scale.prototype.getNameList = function () {
         var nameList = [];
@@ -68,14 +68,14 @@ var Tomato = /** @class */ (function (_super) {
     };
     return Tomato;
 }(Products));
-var apple1 = new Apple("ranet", 100);
-var apple2 = new Apple("shafran", 80);
-var apple3 = new Apple("antonovka", 70);
-var apple4 = new Apple("beliynaliv", 90);
-var tomato1 = new Tomato("cherry", 50);
-var tomato2 = new Tomato("akvarel", 45);
-var tomato3 = new Tomato("eldorado", 60);
-var tomato4 = new Tomato("skorospelka", 80);
+var apple1 = new Apple("Apple ranet", 100);
+var apple2 = new Apple("Apple shafran", 80);
+var apple3 = new Apple("Apple antonovka", 70);
+var apple4 = new Apple("Apple beliynaliv", 90);
+var tomato1 = new Tomato("Tomato cherry", 50);
+var tomato2 = new Tomato("Tomato akvarel", 45);
+var tomato3 = new Tomato("Tomato eldorado", 60);
+var tomato4 = new Tomato("Tomato skorospelka", 80);
 var scale1 = new Scale('electronic');
 scale1.add(apple2);
 scale1.add(apple3);
