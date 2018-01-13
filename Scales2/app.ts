@@ -1,11 +1,9 @@
 class Scale {
-        type:string;    
-        amountScale:number;
+        type:string;        
         listProducts:Array<IScalable>;        
     
         constructor(private typeScale: string) {      
-            this.type = typeScale;
-            this.amountScale = 0;
+            this.type = typeScale;            
             this.listProducts = [];           
         }
     
@@ -15,13 +13,11 @@ class Scale {
         }
     
         getSumScale(): void {
-            if (this.amountScale){
-                this.amountScale = 0;         
-            }
+            let amountScale = 0;
             for (let i = 0; i < this.listProducts.length; i++) {
-                this.amountScale += this.listProducts[i].getScale();
+                amountScale += this.listProducts[i].getScale();
             }
-            console.log('Общий вес добавленных продуктов в граммах:  ' + this.amountScale + ', использовались весы типа ' + this.type);
+            console.log('Общий вес добавленных продуктов в граммах:  ' + amountScale + ', использовались весы типа ' + this.type);
         }
     
         getNameList():void {
