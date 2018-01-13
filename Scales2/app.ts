@@ -15,6 +15,9 @@ class Scale {
         }
     
         getSumScale(): void {
+            if (this.amountScale){
+                this.amountScale = 0;         
+            }
             for (let i = 0; i < this.listProducts.length; i++) {
                 this.amountScale += this.listProducts[i].getScale();
             }
@@ -93,7 +96,9 @@ class Scale {
     scale1.add(tomato3);
     scale1.add(tomato4);
 
-    scale1.getSumScale();    
+    scale1.getSumScale();   
+    scale1.getSumScale();  
+    scale1.getNameList();
     scale1.getNameList();
 
     let scale2:Scale=new Scale('mechanical');
