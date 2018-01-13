@@ -38,8 +38,7 @@ class Scale {
     
     class Apple implements IScalable{
 
-
-        constructor( public name:string, public scale:number) {           
+        constructor( protected name:string, protected scale:number) {           
         
         }
         getScale():number {
@@ -58,7 +57,7 @@ class Scale {
     
     class Tomato implements IScalable{
 
-        constructor(private name:string, private scale:number) {           
+        constructor(protected name:string, protected scale:number) {           
             
         }
 

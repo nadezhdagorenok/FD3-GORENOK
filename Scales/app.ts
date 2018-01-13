@@ -31,8 +31,8 @@ class Scale {
     }
         
     class Products {
-        name: string;
-        scale: number;   
+        protected name: string;
+        protected scale: number;   
 
         constructor( nameProduct: string, scaleProduct: number) {    
             this.name = nameProduct;
@@ -45,6 +45,9 @@ class Scale {
         getName():string {
            return this.name;
         }
+        show():void {
+            console.log(this.name+ " has " + " " + "scale = "+this.scale);
+        }
     }   
     
     
@@ -53,11 +56,7 @@ class Scale {
         constructor( name:string, scale:number) {           
         super(name, scale);
         }
-
-      show():void {
-
-        console.log("apple"+this.name+ " has " + " " + "scale = " + this.scale);
-       }
+      
     }  
        
     
@@ -66,11 +65,7 @@ class Scale {
         constructor(name:string, scale:number) {           
             super(name, scale);
         }
-
-        show():void {
-            console.log("apple"+this.name+ " has " + " " +     
-                +"scale = "+this.scale);
-        }
+        
     }
 
 
@@ -108,6 +103,10 @@ class Scale {
 
     scale2.getSumScale();    
     scale2.getNameList();
+
+
+    apple1.show();
+    tomato4.show();
 
 
 
