@@ -11,7 +11,7 @@ class Scale {
     
         add(product:Products):void {
             this.listProducts.push(product);
-            console.log('Добавлен на весы продукт ' + product.name);
+            console.log('Добавлен на весы продукт ' + product.getName());
         }
     
         getSumScale(): void {
