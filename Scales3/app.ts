@@ -22,25 +22,25 @@ class ScalesStorageEngineArray implements IStorageEngine{
         return this.arrayProducts.length;    
     };
 }
-class ScalesStorageEngineLocalStorage implements IStorageEngine{
-    //private index:number; 
-    constructor(private index:number){
-        this.index=0;
-    }
-    addItem(item:Products):number{
-        localStorage.setItem('this.index', 'item');  
-        this.index++;      
-        console.log('Добавлен продукт ' + item.getName());  
-        return this.index;
+// class ScalesStorageEngineLocalStorage implements IStorageEngine{
+//     private index:number; 
+//     constructor(){
+//         this.index=0;
+//     }
+//     addItem(item:Products):number{
+//         localStorage.setItem('this.index', 'item');  
+//         this.index++;      
+//         console.log('Добавлен продукт ' + item.getName());  
+//         return this.index;
       
-    };
-    getItem(index:number):Products{
-        return JSON.parse(localStorage.getItem('this.index'));
-    };
-    getCount():number{
-        return localStorage.length;    
-    };
-}
+//     };
+//     getItem(index:number):Products{
+//         return JSON.parse(localStorage.getItem('this.index'));
+//     };
+//     getCount():number{
+//         return localStorage.length;    
+//     };
+// }
 
 class Scale <StorageEngine extends IStorageEngine> {        
        private listProducts:StorageEngine[];     
@@ -48,7 +48,7 @@ class Scale <StorageEngine extends IStorageEngine> {
             this.listProducts = [];           
         }
     
-        add(product:StorageEngine):void {
+        add(product:StorageEngine):void {           
             this.listProducts.push(product);
             console.log('Добавлен на весы продукт ' + product['name']);
         }
@@ -129,22 +129,7 @@ class Scale <StorageEngine extends IStorageEngine> {
     scale1.getSumScale(); 
     scale1.getNameList();
 
-    // let scale2 = new Scale<ScalesStorageEngineArray>;
-
-    // scale2.addItem(apple2);
-    // scale2.addItem(apple3);
-    // // scale2.add(apple4);     // добавим на механические весы чуть меньше продуктов
-    // // scale2.add(tomato1);
-    // // scale2.add(tomato2);
-    // scale2.add(tomato3);
-    // scale2.add(tomato4);
-
-    // scale2.getSumScale();    
-    // scale2.getNameList();
-
-
-    // apple1.show();
-    // tomato4.show();
+    
 
 
 
