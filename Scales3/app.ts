@@ -42,12 +42,10 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine{
     };
 }
 
-class Scale <StorageEngine extends IStorageEngine> {
-        type:string; 
-        listProducts:StorageEngine[];       
-    
-        constructor(private typeScale: string) {      
-            this.type = typeScale;            
+class Scale <StorageEngine extends IStorageEngine> {        
+        listProducts:StorageEngine[];     
+            constructor() {     
+                       
             this.listProducts = [];           
         }
     
@@ -92,9 +90,8 @@ class Scale <StorageEngine extends IStorageEngine> {
         show():void {
             console.log(this.name+ " has " + " " + "scale = "+this.scale);
         }
-    }   
-    
-    
+    }    
+        
     class Apple extends Products{
         constructor( name:string, scale:number) {           
         super(name, scale);
@@ -116,38 +113,37 @@ class Scale <StorageEngine extends IStorageEngine> {
     let tomato1:Tomato=new Tomato("Tomato cherry",50);
     let tomato2:Tomato=new Tomato("Tomato akvarel",45);
     let tomato3:Tomato=new Tomato("Tomato eldorado",60);
-    let tomato4:Tomato=new Tomato("Tomato skorospelka",80);
+    let tomato4:Tomato=new Tomato("Tomato skorospelka",80); 
 
-    let scale1 = new Scale<ScalesStorageEngineArray>('electronic');
-
-    scale1.add(apple2);
-    scale1.add(apple3);
-    scale1.add(apple4);
-    scale1.add(tomato1);
-    scale1.add(tomato2);
-    scale1.add(tomato3);
-    scale1.add(tomato4);
-
-    scale1.getSumScale();   
+    let scalesStorageEngineArray1 : ScalesStorageEngineArray = new ScalesStorageEngineArray();
+    
+    scalesStorageEngineArray1.addItem(apple1);
+    scalesStorageEngineArray1.addItem(apple2);
+    scalesStorageEngineArray1.addItem(apple3);
+    scalesStorageEngineArray1.addItem(apple4);
+    scalesStorageEngineArray1.addItem(tomato1);
+    let scale1= new Scale<ScalesStorageEngineArray>();
+    scale1.add(scalesStorageEngineArray1);
+    scale1.getSumScale();
     scale1.getSumScale(); 
     scale1.getNameList();
 
-    let scale2 = new Scale<ScalesStorageEngineArray>('mechanical');
+    // let scale2 = new Scale<ScalesStorageEngineArray>;
 
-    scale2.add(apple2);
-    scale2.add(apple3);
-    // scale2.add(apple4);     // добавим на механические весы чуть меньше продуктов
-    // scale2.add(tomato1);
-    // scale2.add(tomato2);
-    scale2.add(tomato3);
-    scale2.add(tomato4);
+    // scale2.addItem(apple2);
+    // scale2.addItem(apple3);
+    // // scale2.add(apple4);     // добавим на механические весы чуть меньше продуктов
+    // // scale2.add(tomato1);
+    // // scale2.add(tomato2);
+    // scale2.add(tomato3);
+    // scale2.add(tomato4);
 
-    scale2.getSumScale();    
-    scale2.getNameList();
+    // scale2.getSumScale();    
+    // scale2.getNameList();
 
 
-    apple1.show();
-    tomato4.show();
+    // apple1.show();
+    // tomato4.show();
 
 
 
