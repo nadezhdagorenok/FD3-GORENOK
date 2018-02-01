@@ -43,9 +43,8 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine{
 }
 
 class Scale <StorageEngine extends IStorageEngine> {        
-        listProducts:StorageEngine[];     
-            constructor() {     
-                       
+       private listProducts:StorageEngine[];     
+            constructor() {                           
             this.listProducts = [];           
         }
     
@@ -117,12 +116,14 @@ class Scale <StorageEngine extends IStorageEngine> {
 
     let scalesStorageEngineArray1 : ScalesStorageEngineArray = new ScalesStorageEngineArray();
     
-    scalesStorageEngineArray1.addItem(apple1);
+    let index1:number = scalesStorageEngineArray1.addItem(apple1);
+    let pr:Products=scalesStorageEngineArray1.getItem(index1);
+    console.log(pr);
     scalesStorageEngineArray1.addItem(apple2);
     scalesStorageEngineArray1.addItem(apple3);
     scalesStorageEngineArray1.addItem(apple4);
     scalesStorageEngineArray1.addItem(tomato1);
-    let scale1= new Scale<ScalesStorageEngineArray>();
+    let scale1:any= new Scale<ScalesStorageEngineArray>();
     scale1.add(scalesStorageEngineArray1);
     scale1.getSumScale();
     scale1.getSumScale(); 

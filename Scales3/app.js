@@ -53,9 +53,7 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     return ScalesStorageEngineLocalStorage;
 }());
 var Scale = /** @class */ (function () {
-    function Scale(typeScale) {
-        this.typeScale = typeScale;
-        this.type = typeScale;
+    function Scale() {
         this.listProducts = [];
     }
     Scale.prototype.add = function (product) {
@@ -116,27 +114,29 @@ var tomato1 = new Tomato("Tomato cherry", 50);
 var tomato2 = new Tomato("Tomato akvarel", 45);
 var tomato3 = new Tomato("Tomato eldorado", 60);
 var tomato4 = new Tomato("Tomato skorospelka", 80);
-var scale1 = new Scale('electronic');
-scale1.add(apple2);
-scale1.add(apple3);
-scale1.add(apple4);
-scale1.add(tomato1);
-scale1.add(tomato2);
-scale1.add(tomato3);
-scale1.add(tomato4);
+var scalesStorageEngineArray1 = new ScalesStorageEngineArray();
+var index1 = scalesStorageEngineArray1.addItem(apple1);
+var pr = scalesStorageEngineArray1.getItem(index1);
+console.log(pr);
+scalesStorageEngineArray1.addItem(apple2);
+scalesStorageEngineArray1.addItem(apple3);
+scalesStorageEngineArray1.addItem(apple4);
+scalesStorageEngineArray1.addItem(tomato1);
+var scale1 = new Scale();
+scale1.add(scalesStorageEngineArray1);
 scale1.getSumScale();
 scale1.getSumScale();
 scale1.getNameList();
-var scale2 = new Scale('mechanical');
-scale2.add(apple2);
-scale2.add(apple3);
-// scale2.add(apple4);     // добавим на механические весы чуть меньше продуктов
-// scale2.add(tomato1);
-// scale2.add(tomato2);
-scale2.add(tomato3);
-scale2.add(tomato4);
-scale2.getSumScale();
-scale2.getNameList();
-apple1.show();
-tomato4.show();
+// let scale2 = new Scale<ScalesStorageEngineArray>;
+// scale2.addItem(apple2);
+// scale2.addItem(apple3);
+// // scale2.add(apple4);     // добавим на механические весы чуть меньше продуктов
+// // scale2.add(tomato1);
+// // scale2.add(tomato2);
+// scale2.add(tomato3);
+// scale2.add(tomato4);
+// scale2.getSumScale();    
+// scale2.getNameList();
+// apple1.show();
+// tomato4.show();
 //# sourceMappingURL=app.js.map
