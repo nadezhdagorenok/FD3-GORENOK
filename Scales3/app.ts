@@ -117,8 +117,8 @@ class Scale <StorageEngine extends IStorageEngine> {
     let scalesStorageEngineArray1 : ScalesStorageEngineArray = new ScalesStorageEngineArray();
     
     let index1:number = scalesStorageEngineArray1.addItem(apple1);
-    let pr:Products=scalesStorageEngineArray1.getItem(index1);
-    console.log(pr);
+    let product:Products=scalesStorageEngineArray1.getItem(index1);
+    console.log(product);
     scalesStorageEngineArray1.addItem(apple2);
     scalesStorageEngineArray1.addItem(apple3);
     scalesStorageEngineArray1.addItem(apple4);
