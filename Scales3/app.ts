@@ -1,6 +1,6 @@
 interface IStorageEngine {
-    addItem(item:Products):number;
-    getItem(index:number):Products;
+    addItem(item:Products):any;
+    getItem(index:any):Products;
     getCount():number;
 }
 
@@ -22,25 +22,24 @@ class ScalesStorageEngineArray implements IStorageEngine{
         return this.arrayProducts.length;    
     };
 }
-// class ScalesStorageEngineLocalStorage implements IStorageEngine{
-//     private index:number; 
-//     constructor(){
-//         this.index=0;
-//     }
-//     addItem(item:Products):number{
-//         localStorage.setItem('this.index', 'item');  
-//         this.index++;      
-//         console.log('Добавлен продукт ' + item.getName());  
-//         return this.index;
-      
-//     };
-//     getItem(index:number):Products{
-//         return JSON.parse(localStorage.getItem('this.index'));
-//     };
-//     getCount():number{
-//         return localStorage.length;    
-//     };
-// }
+class ScalesStorageEngineLocalStorage implements IStorageEngine{
+    // private index:number; 
+    // constructor(){
+    //     this.index=0;
+    // }
+    addItem(item:Products):number{
+        localStorage.setItem(String(localStorage.length), JSON.stringify(item));  
+        // this.index++;      
+        //console.log('Добавлен продукт ' + item['name']);  
+        return localStorage.length;      
+    };
+    getItem(index:number):Products{
+        return JSON.parse(localStorage.getItem(String(index)));
+    };
+    getCount():number{
+        return localStorage.length;    
+    };
+}
 
 class Scale <StorageEngine extends IStorageEngine> {        
        private listProducts:StorageEngine[];     
@@ -48,32 +47,34 @@ class Scale <StorageEngine extends IStorageEngine> {
             this.listProducts = [];           
         }
     
-        add(product:StorageEngine):void {           
+        add(product):void {           
             this.listProducts.push(product);
-            console.log('Добавлен на весы продукт ' + product['name']);
+            //console.log('Добавлен на весы продукт ', product['name']);
         }
     
-        getSumScale(): void {
-            let amountScale = 0;  
+        getSumScale(): number {
+            let amountScale:number = 0;  
             for (let i = 0; i < this.listProducts.length; i++) {
                 amountScale += this.listProducts[i]['scale'];
+                console.log(amountScale);
             }
-            console.log('Общий вес добавленных продуктов в граммах:  ' + amountScale + ', использовались весы типа ' + this.type);
-            
+            console.log('Общий вес добавленных продуктов в граммах:  ', amountScale);
+            return amountScale;
         }
     
-        getNameList():void {
+        getNameList():Array<string> {
             let nameList: Array<string>=[];
             for (let i = 0; i < this.listProducts.length; i++) {
                 nameList.push(this.listProducts[i]['name']);
             }
-        console.log('Список наименований всех добавленных продуктов: ' + nameList);
+        console.log('Список наименований всех добавленных продуктов: ', nameList);
+        return nameList;
         }
     }
         
     class Products {
-        protected name: string;
-        protected scale: number;   
+        public name: string;
+        public scale: number;   
 
         constructor( nameProduct: string, scaleProduct: number) {    
             this.name = nameProduct;
@@ -104,6 +105,8 @@ class Scale <StorageEngine extends IStorageEngine> {
         
     }
 
+    let scale1= new Scale<ScalesStorageEngineArray>();
+    let scalesStorageEngineArray1 : ScalesStorageEngineArray = new ScalesStorageEngineArray();
 
     let apple1:Apple=new Apple("Apple ranet",100);
     let apple2:Apple=new Apple("Apple shafran",80);
@@ -112,23 +115,71 @@ class Scale <StorageEngine extends IStorageEngine> {
     let tomato1:Tomato=new Tomato("Tomato cherry",50);
     let tomato2:Tomato=new Tomato("Tomato akvarel",45);
     let tomato3:Tomato=new Tomato("Tomato eldorado",60);
-    let tomato4:Tomato=new Tomato("Tomato skorospelka",80); 
-
-    let scalesStorageEngineArray1 : ScalesStorageEngineArray = new ScalesStorageEngineArray();
+    let tomato4:Tomato=new Tomato("Tomato skorospelka",80);     
     
-    let index1:number = scalesStorageEngineArray1.addItem(apple1);
-    let product:Products=scalesStorageEngineArray1.getItem(index1);
-    console.log(product);
-    scalesStorageEngineArray1.addItem(apple2);
-    scalesStorageEngineArray1.addItem(apple3);
-    scalesStorageEngineArray1.addItem(apple4);
-    scalesStorageEngineArray1.addItem(tomato1);
-    let scale1:any= new Scale<ScalesStorageEngineArray>();
-    scale1.add(scalesStorageEngineArray1);
+    let index0:number = scalesStorageEngineArray1.addItem(apple1);
+    console.log(index0);
+    let product1=scalesStorageEngineArray1.getItem(index0);
+    console.log(product1);
+    let index1:number = scalesStorageEngineArray1.addItem(apple2);
+    let index2:number = scalesStorageEngineArray1.addItem(apple3);
+    let index3:number = scalesStorageEngineArray1.addItem(apple4);
+    let index4:number = scalesStorageEngineArray1.addItem(tomato1);
+    let product2=scalesStorageEngineArray1.getItem(index1);
+    let product3=scalesStorageEngineArray1.getItem(index2);
+    let product4=scalesStorageEngineArray1.getItem(index3);
+    let product5=scalesStorageEngineArray1.getItem(index4);    
+    
+    scale1.add(product1);
+    scale1.add(product2);
+    scale1.add(product3);
+    scale1.add(product4);
+    scale1.add(product5);
     scale1.getSumScale();
     scale1.getSumScale(); 
     scale1.getNameList();
 
+
+
+    let scale2= new Scale<ScalesStorageEngineArray>();
+    let scalesStorageEngineLocalStorage1 : ScalesStorageEngineLocalStorage = new ScalesStorageEngineLocalStorage();
+    
+    
+    let index20:number = scalesStorageEngineLocalStorage1.addItem(apple1);
+    console.log(index20);
+    let product21=scalesStorageEngineLocalStorage1.getItem(index20);
+    console.log(product21);
+    let apple10:Apple=new Apple(product21['name'],product21['scale']);
+    
+    scale2.add(apple10);
+    // let index21:number = scalesStorageEngineLocalStorage1.addItem(apple2);
+    // let index22:any = scalesStorageEngineLocalStorage1.addItem(apple3);
+    // let index23:any = scalesStorageEngineLocalStorage1.addItem(apple4);
+    // let index24:any = scalesStorageEngineLocalStorage1.addItem(tomato1);
+    // let product22=scalesStorageEngineLocalStorage1.getItem(index21);
+    // let product23=scalesStorageEngineLocalStorage1.getItem(index22);
+    // let product24=scalesStorageEngineLocalStorage1.getItem(index23);
+    // let product25=scalesStorageEngineLocalStorage1.getItem(index24);   
+    
+    // let apple20:Products=new Apple(product22['name'],product21['scale']);
+    // scale2.add(apple20);
+    // let apple30:Products=new Apple(product23['name'],product21['scale']);
+    // scale2.add(apple30);
+    // let apple40:Products=new Apple(product24['name'],product21['scale']);
+    // scale2.add(apple40);
+    // let apple50:Products=new Apple(product25['name'],product21['scale']);
+    // scale2.add(apple50);
+    
+    
+    // scale2.add(apple20);
+    // scale2.add(apple30);
+    // scale2.add(apple40);
+    // scale2.add(apple50);
+    scale2.getSumScale();
+    scale2.getSumScale(); 
+    scale2.getNameList();
+
+    
     
 
 
