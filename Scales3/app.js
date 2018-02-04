@@ -15,7 +15,7 @@ var ScalesStorageEngineArray = /** @class */ (function () {
     ScalesStorageEngineArray.prototype.addItem = function (item) {
         var index = this.arrayProducts.length;
         this.arrayProducts.push(item);
-        console.log('Добавлен продукт ' + item.getName());
+        console.log('Добавлен продукт в Array: ' + item.getName());
         return index;
     };
     ;
@@ -34,6 +34,7 @@ var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     }
     ScalesStorageEngineLocalStorage.prototype.addItem = function (item) {
         localStorage.setItem(String(localStorage.length), JSON.stringify(item));
+        console.log('Добавлен продукт в LocalStorage: ' + item.getName());
         return localStorage.length - 1;
     };
     ;

@@ -12,7 +12,7 @@ class ScalesStorageEngineArray implements IStorageEngine{
     addItem(item:Products):number{
         let index:number = this.arrayProducts.length;
         this.arrayProducts.push(item);
-        console.log('Добавлен продукт ' + item.getName());     
+        console.log('Добавлен продукт в Array: ' + item.getName());     
         return index;
     };
     getItem(index:number):Products{
@@ -26,7 +26,8 @@ class ScalesStorageEngineArray implements IStorageEngine{
 class ScalesStorageEngineLocalStorage implements IStorageEngine{
     
     addItem(item:Products):number{
-        localStorage.setItem(String(localStorage.length), JSON.stringify(item));          
+        localStorage.setItem(String(localStorage.length), JSON.stringify(item));   
+        console.log('Добавлен продукт в LocalStorage: ' + item.getName());         
         return localStorage.length-1;      
     };
     getItem(index:number):Products{
@@ -45,7 +46,7 @@ class Scale <StorageEngine extends IStorageEngine> {
     
         add(product):void {           
             this.listProducts.push(product);
-            console.log('Добавлен на весы продукт ', product['name']);
+            console.log('Добавлен на весы продукт: ', product['name']);
         }
     
         getSumScale(): number {
